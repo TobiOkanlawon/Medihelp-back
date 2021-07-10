@@ -7,24 +7,33 @@ type Query {
 }
 
 type Mutation {
-    createDoctor(email: String!, name: String!): Doctor!
-    createStudent(name: String!, clinicID: String!): Student!
-    createPharmacist(email: String!, name: String!): Pharmacist!
+    createDoctor(email: String!, firstName: String!, lastName: String!): Doctor!
+    createStudent(firstName: String!, clinicID: String!): Student!
+    createPharmacist(email: String!, firstName: String!, lastName: String!): Pharmacist!
 }
 
 type Student {
-    name: String,
-    clinicID: String,
+    firstName: String!,
+    lastName: String!,
+    clinicID: String!,
 },
 
 type Doctor {
     email: String!,
-    name: String!,
+    firstName: String!,
+    lastName: String!
 }
 
 type Pharmacist {
     email: String!,
-    name: String!,
+    firstName: String!,
+    lastName: String!,
+}
+
+type Receptionist {
+    email: String!,
+    firstName: String!,
+    lastName: String!,
 }
 `
 
