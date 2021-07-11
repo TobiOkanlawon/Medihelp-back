@@ -22,7 +22,8 @@ const resolvers = {
         }
     },
     Student: {
-        name: (parent) => parent.name,
+        firstName: (parent) => parent.firstName,
+        lastName: (parent) => parent.lastName,
         clinicID: (parent) => parent.clinicID,
     }
 }
