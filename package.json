@@ -6,8 +6,11 @@
   "dependencies": {
     "@prisma/client": "^2.26.0",
     "apollo-server-express": "^2.25.2",
+    "bcryptjs": "^2.4.3",
     "graphql": "^15.5.1",
+    "jsonwebtoken": "^8.5.1",
     "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0",
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
@@ -16,7 +19,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "undo-migrate" : "npx sequelize-cli db:migrate:undo:all",
+    "migrate": "npx sequelize-cli db:migrate"
   },
   "keywords": [],
   "author": "",
