@@ -4,7 +4,6 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "@prisma/client": "^2.26.0",
     "apollo-server-express": "^2.25.2",
     "bcryptjs": "^2.4.3",
     "graphql": "^15.5.1",
@@ -14,14 +13,13 @@
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.11",
-    "prisma": "^2.26.0"
+    "nodemon": "^2.0.11"
   },
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "undo-migrate" : "npx sequelize-cli db:migrate:undo:all",
+    "undo-migrate": "npx sequelize-cli db:migrate:undo:all",
     "migrate": "npx sequelize-cli db:migrate"
   },
   "keywords": [],
