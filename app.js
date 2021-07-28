@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path')
 
 const {ApolloServer} = require('apollo-server-express');
 
@@ -32,7 +33,21 @@ const server = new ApolloServer({
 });
 
 const app = express();
+app.use(express.static(path.join(__dirname, '/SPA/static/SPA')))
 server.applyMiddleware({app})
+
+app.get('/', function(req, res){
+    const options = {
+      root: path.join(__dirname)
+    }
+      res.sendFile('./templates/index.html', options, function(err){
+        if(err){
+          next(err);
+        } else {
+          console.log('/')
+        }
+      })
+  })
 
 app.listen({port: process.env.PORT || 4000}, ()=>{
     console.log(`Server is running!${server.graphqlPath}`)

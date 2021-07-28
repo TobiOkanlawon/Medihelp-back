@@ -12,9 +12,9 @@ const createDoctor = async function (parent, {firstName, lastName, email, passwo
     return {token, user: doctor}
 }
 
-const createStudent = async function (parent, {clinicID, firstName, lastName, password, gender, DOB}, {models}){
+const createStudent = async function (parent, {clinicID, firstName, lastName, email, password, gender, DOB}, {models}){
     const student = await models.Student.create({
-        firstName, lastName, clinicID, gender, DOB,
+        firstName, lastName, clinicID, gender, DOB, email,
         password: await bcrypt.hash(password, 10)
     })
 
@@ -47,6 +47,10 @@ const createRecord = async function (parent, {doctorEmail, date, clinicID}, {mod
     })
 
     return record
+}
+
+const createAppointment = function (parent, args, context){
+    return {status: 'DONE'}
 }
 
 const loginDoctor = async function(parent, {email, password}, {models}){
@@ -142,6 +146,7 @@ module.exports = {
     createPharmacist,
     createReceptionist,
     createRecord,
+    createAppointment,
     loginDoctor,
     loginStudent,
     loginPharmacist,

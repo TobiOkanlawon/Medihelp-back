@@ -13,7 +13,7 @@ type Mutation {
     createPharmacist(email: String!, firstName: String!, lastName: String!, password:String!): AuthPayloadStaff
     createReceptionist(email: String!, firstName: String!, lastName: String!, password:String!): AuthPayloadStaff
     createAppointment(clinicID: String!): Status!
-    createRecord(clinicID: String!, doctorEmail: String!, date: DOBInput): Record!
+    createRecord(clinicID: String!, doctorEmail: String, date: DOBInput): Record!
     setAppointment(clinicID: String!, day: Int!, month: Int!, year: Int!, hour: Int!, minute: Int!): Status!
     loginDoctor(email: String!, password: String!): AuthPayloadStaff
     loginPharmacist(email: String!, password: String!): AuthPayloadStaff
@@ -25,6 +25,7 @@ type Student {
     firstName: String,
     lastName: String,
     clinicID: String,
+    email: String,
     gender: Gender,
     DOB: Date,
 },
@@ -64,8 +65,14 @@ type Appointment {
 }
 
 type Record {
+    fiels: [Field],
     date: Date!,
-    doctorEmail: String!, 
+    doctorEmail: String, 
+}
+
+type Field {
+    name: String,
+    information: String,
 }
 
 type Date {
